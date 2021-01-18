@@ -53,13 +53,15 @@ jobs:
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
-        cache: true
         install: >-
           mingw-w64-x86_64-toolchain
           mingw-w64-x86_64-pkg-config
           mingw-w64-x86_64-lapack
           mingw-w64-x86_64-openblas
           mingw-w64-x86_64-hdf5
+          mingw-w64-x86_64-python-numpy
+          mingw-w64-x86_64-python-numexpr
+          mingw-w64-x86_64-cython
           mingw-w64-x86_64-python-pip
 
 
