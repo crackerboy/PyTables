@@ -109,11 +109,11 @@ jobs:
 
     - name: Build source distribution
       run: |
-        python setup.py sdist
+        python setup.py build --compiler=mingw64
 
     - name: Install package
       run: |
-        pip install dist/*.tar.gz
+        python setup.py install
 
     - name: Run tests
       run: |
