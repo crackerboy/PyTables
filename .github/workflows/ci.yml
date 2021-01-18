@@ -107,17 +107,17 @@ jobs:
         python -m pip install cython
         # python -m pip install sphinx>=1.1 sphinx_rtd_theme numpydoc ipython
 
-    - name: Build source distribution
+    - name: Install package in development mode
       env:
         # https://github.com/Blosc/bcolz/issues/405
         # https://github.com/PCSX2/pcsx2/issues/2554
         CFLAGS: -mxsave
       run: |
-        python setup.py bdist_wheel
+        python setup.py develop
 
-    - name: Install package
-      run: |
-        pip install dist/*.whl
+    #- name: Install package
+    #  run: |
+    #    pip install dist/*.whl
 
     - name: Run tests
       run: |
