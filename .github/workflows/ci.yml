@@ -109,7 +109,7 @@ jobs:
 
     - name: Build source distribution
       run: |
-        python setup.py build --compiler=mingw32
+        python setup.py build_ext --compiler=mingw32
 
     - name: Install package
       run: |
