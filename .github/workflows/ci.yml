@@ -108,12 +108,16 @@ jobs:
         # python -m pip install sphinx>=1.1 sphinx_rtd_theme numpydoc ipython
 
     - name: Build source distribution
+      env:
+        # https://github.com/Blosc/bcolz/issues/405
+        # https://github.com/PCSX2/pcsx2/issues/2554
+        CFLAGS: -mxsave
       run: |
-        python setup.py sdist
+        python setup.py bdist_wheel
 
     - name: Install package
       run: |
-        pip install dist/*.tar.gz
+        pip install dist/*.whl
 
     - name: Run tests
       run: |
